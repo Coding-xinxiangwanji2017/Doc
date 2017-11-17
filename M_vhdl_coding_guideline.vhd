@@ -28,8 +28,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity M_vhdl_coding_guideline is
-    port 
-    (
+    port (
         ------------------------------------------------------------------------
         -- CpSl_TmpRst_s_i and clock
         ------------------------------------------------------------------------
@@ -100,14 +99,12 @@ architecture arch_M_vhdl_coding_guideline of M_vhdl_coding_guideline is
     -- component declaration
     ----------------------------------------------------------------------------
     component cam 
-        generic 
-        (
+        generic (
             FAMILY                      : string := "Cyclone IV";
             ENTRIES                     : integer:= 1024;
             KEY                         : integer:= 48
         );
-        port
-        ( -- 1024x48
+        port ( -- 1024x48
             CpSl_Rst_i                  : in  std_logic;                        -- Async CpSl_Rst_i
             CpSl_WrClk_i                : in  std_logic;                        -- Port A - Write Clock
             CpSl_WrEn_i                 : in  std_logic;                        -- Port A - Write Enable
@@ -225,14 +222,12 @@ begin
     -- CAM instant
     ----------------------------------------------------------------------------
     U_cam_0 : cam 
-        generic map 
-        (
+        generic map (
             FAMILY                    => "Cyclone IV",               -- string := "Cyclone IV";
             ENTRIES                   => 1024        ,               -- integer:= 1024;
             KEY                       => 48                          -- integer:= 48
         )
-        port map 
-        ( -- 1024x48
+        port map ( -- 1024x48
             CpSl_Rst_i                       => CpSl_TmpRst_s      , -- in  std_logic;                       -- Async CpSl_CpSl_TmpRst_s_i
             CpSl_WrClk_i                     => CpSl_Clkdiv3_i     , -- in  std_logic;                       -- Port A - Write Clock
             CpSl_WrEn_i                      => CpSl_TmpCamWen_s   , -- in  std_logic;                       -- Port A - Write Enable
